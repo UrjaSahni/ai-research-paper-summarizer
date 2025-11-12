@@ -10,14 +10,16 @@ import re
 from collections import defaultdict
 
 # Load environment variables
-load_dotenv('.env.example')
-
-# Page config
+# Page config - MUST be first Streamlit command
 st.set_page_config(
     page_title="AI Research Paper Summarizer",
     page_icon="📚",
     layout="wide"
 )
+
+# Load environment variables
+load_dotenv('.env.example')
+
 
 # Initialize session state
 if 'papers' not in st.session_state:
