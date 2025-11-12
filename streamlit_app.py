@@ -231,7 +231,8 @@ st.markdown("Upload multiple research papers and get AI-powered multi-level summ
 # Sidebar
 with st.sidebar:
     st.header("⚙️ Configuration")
-    api_key = st.text_input("Hugging Face API Key", type="password", value=st.secrets.get('HUGGINGFACE_API_KEY', ''), help="Enter your HF API key")    st.markdown("---")
+    api_key = st.text_input("Hugging Face API Key", type="password", value=st.secrets.get('HUGGINGFACE_API_KEY', ''), help="Enter your HF API key")    
+    st.markdown("---")
     st.markdown("""
     ### Features:
     - 📄 Upload multiple PDFs
