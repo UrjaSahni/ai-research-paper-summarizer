@@ -3,11 +3,10 @@ import tempfile
 import streamlit as st
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader, TextLoader, UnstructuredWordDocumentLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitte
+rfrom langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.llms import HuggingFaceHub
-
+from langchain_community.llms import HuggingFaceHub
 # --- SETUP ---
 load_dotenv()
 hf_key = os.getenv("HUGGINGFACEHUB_API_TOKEN")
