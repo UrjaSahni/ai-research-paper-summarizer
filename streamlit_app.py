@@ -94,6 +94,16 @@ def get_file_text(file):
     else:
         return "Unsupported file format"
 
+# Cached model loading function
+@st.cache_resource
+def load_summarizer(api_key):
+    """Load and cache the summarization model"""
+    return pipeline(
+        "summarization",
+        model="facebook/bart-large-cnn",
+        token=api_key
+    )
+
 # Main app
 tab1, tab2, tab3 = st.tabs(["📄 Upload & Summarize", "🔍 Compare Documents", "ℹ️ About"])
 
@@ -108,13 +118,10 @@ with tab1:
     
     if uploaded_files and api_key:
         try:
-            # Initialize summarizer
-            summarizer = pipeline(
-                "summarization",
-                model="facebook/bart-large-cnn",
-                token=api_key
-            )
-            
+            # Load model using cached function (only loads once)
+            with st.spinner("🔄 Loading AI model (first time only)..."):
+                summarizer = load_summarizer(api_key)
+                        
             for idx, file in enumerate(uploaded_files):
                 st.subheader(f"📖 {file.name}")
                 
