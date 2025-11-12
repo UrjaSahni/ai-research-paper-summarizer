@@ -1,3 +1,9 @@
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv('.env.example')
+
 import streamlit as st
 import os
 from transformers import pipeline
@@ -23,7 +29,7 @@ Upload your documents (PDF, DOCX, PPTX, TXT, MD) and get AI-powered summaries.
 # Sidebar for API key
 with st.sidebar:
     st.header("⚙️ Configuration")
-    api_key = st.text_input("Hugging Face API Key", type="password", help="Enter your HF API key")
+    api_key = st.text_input("Hugging Face API Key", type="password", help="Enter your HF API key", value=os.getenv('HUGGINGFACE_API_KEY', ''))
     st.markdown("---")
     st.markdown("""
     ### Features:
