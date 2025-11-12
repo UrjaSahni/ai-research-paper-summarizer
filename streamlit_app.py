@@ -421,7 +421,7 @@ with tab3:
     5. Go to "Compare Papers" tab to see comparative analysis
     
     ### 👨‍💻 Developer
-    Built by Urja Sahni
+    Built by Urja Sahni and Sahil
     """)
     
     st.markdown("---")
