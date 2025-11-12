@@ -12,7 +12,7 @@ An AI-powered web application that helps researchers and students quickly unders
 
 ## 🚀 Live Demo
 
-[Try it on Streamlit Cloud](https://share.streamlit.io/) (Link will be available after deployment)
+https://ai-research-paper-summarizer-evyrkrdny4ruogvf3iptz2.streamlit.app/
 
 ## 📸 Screenshots
 
