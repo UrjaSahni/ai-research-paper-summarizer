@@ -8,7 +8,6 @@ from pptx import Presentation
 import io
 import re
 from collections import defaultdict
-import json
 
 # Load environment variables
 # Page config - MUST be first Streamlit command
@@ -326,79 +325,9 @@ with tab1:
                     st.write(summaries['insights'].get('Conclusions', 'Not found'))
     
     elif uploaded_files and not api_key:
-
-        
         st.warning("⚠️ Please enter your Hugging Face API key in the sidebar")
     else:
-
-                        # Export functionality
-                st.markdown("---")
-                st.markdown("### 📤 Export Results")
-                
-                # Prepare export data
-                export_data = {
-                    "paper_name": paper_name,
-                    "executive_summary": summaries['executive'],
-                    "section_wise_summary": summaries['sections'],
-                    "key_insights": summaries['insights']
-                }
-                
-                # JSON export
-                json_str = json.dumps(export_data, indent=2)
-                st.download_button(
-                    label="📥 Download as JSON",
-                    data=json_str,
-                    file_name=f"{paper_name.replace('.pdf', '')}_summary.json",
-                    mime="application/json",
-                    key=f"json_{paper_name}"
-                )
-                
-                # Text export
-                text_export = f"""RESEARCH PAPER SUMMARY
-{'='*50}
-Paper: {paper_name}
-
-EXECUTIVE SUMMARY:
-{summaries['executive']}
-
-SECTION-WISE SUMMARY:
-"""
-                for section, summary in summaries['sections'].items():
-                    text_export += f"\n{section}:\n{summary}\n"
-                
-                text_export += f"""\nKEY INSIGHTS:
-
-Methodology:
-{summaries['insights'].get('Methodology', 'N/A')}
-
-Results:
-{summaries['insights'].get('Results', 'N/A')}
-
-Conclusions:
-{summaries['insights'].get('Conclusions', 'N/A')}
-"""
-                
-                st.download_button(
-                    label="📄 Download as Text",
-                    data=text_export,
-                    file_name=f"{paper_name.replace('.pdf', '')}_summary.txt",
-                    mime="text/plain",
-                    key=f"txt_{paper_name}"
-                )
-
-        # Export All Papers button
-                t.session_state.summaries) > 1:
-                        "---")
-                        "### 📦 Export All Papers")
-            
-            all_papers_json = json.dumps(st.session_state.summaries, indent=2)
-            st.download_button(
-                                d All Summaries as JSON",
-                data=all_papers_json,
-                file_name="all_papers_summaries.json",
-                mime="application/json",
-                key="all_json"
-                                    )
+        st.info("👆 Upload PDF files to get started")
 
 with tab2:
     st.header("🔍 Comparative Analysis")
