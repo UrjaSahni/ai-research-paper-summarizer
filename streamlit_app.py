@@ -386,20 +386,19 @@ Conclusions:
                     key=f"txt_{paper_name}"
                 )
 
-            # Export All Papers button
-        if len(st.session_state.summaries) > 1:
-            st.markdown("---")
-            st.markdown("### 📦 Export All Papers")
+        # Export All Papers button
+                t.session_state.summaries) > 1:
+                        "---")
+                        "### 📦 Export All Papers")
             
             all_papers_json = json.dumps(st.session_state.summaries, indent=2)
             st.download_button(
-                label="📥 Download All Summaries as JSON",
+                                d All Summaries as JSON",
                 data=all_papers_json,
                 file_name="all_papers_summaries.json",
                 mime="application/json",
                 key="all_json"
-            )
-        st.info("👆 Upload PDF files to get started")
+                                    )
 
 with tab2:
     st.header("🔍 Comparative Analysis")
